@@ -1,0 +1,92 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" href="#/home">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/studentProfile/{{model.student._id}}">Profile</a></li>
+                <li><a href="#/messageStudentProfile/{{model.student._id}}">Messages</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/studentLogin">Logout</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <ul class="breadcrumb breadcrumb-light">
+            <li>My Dorm</li>
+            <li>{{model.student.dorm}}</li>
+            <li class="active">Room {{model.student.room}}</li>
+    </ul>
+
+    <div class="row">
+        <div class="col-lg-6 col-sm-6 ">
+            <!-- Map MAKE INTERACTIVE -->
+            <a href="#" class="thumbnail">
+                <img src="../images/StaticMapService.png" alt="">
+            </a>
+
+             <!-- Roomate Table -->
+            <h4 class="text-muted">Your RA(s)</h4>
+            <table class="table table-striped" data-effect="fade">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Room Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ra in model.ra">
+                        <td><a href="#/viewStudentProfile/{{model.student._id}}/{{ra._id}}">{{ra.name}}</a></td>
+                        <td>{{ra.room}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-sm-6 col-lg-6">
+            <h4 class="text-muted">Your Roomate(s)</h4>
+            <table class="table table-striped" data-effect="fade">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Room Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="roommate in model.roommate">
+                        <td><a href="#/viewStudentProfile/{{model.student._id}}/{{roommate._id}}">{{roommate.name}}</a></td>
+                        <td>{{roommate.room}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="text-muted">Students in Your Building</h4>
+            <table class="table table-striped" data-effect="fade">
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Room Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="student in model.building">
+                    <td><a href="#/viewStudentProfile/{{model.student._id}}/{{student._id}}">{{student.name}}</a></td>
+                    <td>{{student.room}}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+     </div>
+</div>

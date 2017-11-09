@@ -1,0 +1,16 @@
+.img-responsive {
+    display: block;
+    max-width: 20%;
+    height:400px important!;
+    height: auto;
+    opacity: 1;
+}
+
+@media(max-width:768px) {
+.img-responsive {
+    display: block;
+    max-width: 50%;
+    height:400px important!;
+    height: auto;
+    }
+}
