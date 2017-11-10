@@ -4,43 +4,13 @@ module.exports = function() {
     var StudentModel = mongoose.model('StudentModel', StudentSchema, 'StudentModel');
 
     var api = {
-        createStudent: createStudent,
-        createStudent: createStudent,
         findStudentByUsername: findStudentByUsername,
         findStudentById: findStudentById,
         updateStudent: updateStudent,
-        messageStudent: messageStudent
+        messageStudent: messageStudent,
+        uploadImage: uploadImage
     };
     return api;
-
-    function createStudent(username, password, name, major, graduationYear, dorm, hobbies, room, hometown) {
-        StudentModel.create({
-            username: username,
-            password: password,
-            name: name,
-            major: major,
-            graduationYear,
-            dorm: dorm,
-            hobbies: hobbies,
-            room: room,
-            hometown: hometown
-        });
-    }
-
-    function createStudent(username, password, name, major, graduationYear, dorm, hobbies, room, hometown, roommate) {
-        StudentModel.create({
-            username: username,
-            password: password,
-            name: name,
-            major: major,
-            graduationYear,
-            dorm: dorm,
-            hobbies: hobbies,
-            room: room,
-            hometown: hometown,
-            roommate: roommate
-        });
-    }
 
     function findStudentByUsername(username) {
         return StudentModel.findOne({
@@ -79,4 +49,17 @@ module.exports = function() {
             }
         )
     }
+
+    function uploadImage(studentId, fileName) {
+        return StudentModel.update (
+            {
+                _id: studentId
+            }, 
+            {
+                img: "upload/" + fileName
+            }
+        );
+    }
+
+
 }

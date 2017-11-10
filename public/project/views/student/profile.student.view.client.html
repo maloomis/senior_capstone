@@ -30,8 +30,15 @@
             <div class="col-lg-6 col-sm-6 ">
                 <!-- Map MAKE INTERACTIVE -->
                 <a href="#" class="thumbnail">
-                    <img src="../images/profile.png" alt="">
+                    <img src="../../project/{{model.student.img}}" alt="">
                 </a>
+
+                <form action="/api/uploadImage" method="post" enctype="multipart/form-data">
+                    <input name="myFile" type="file" class="form-control"/>
+                    <input name="studentId" value="{{model.student._id}}" style="display: none"/>
+                    </br>
+                    <button name="submit" class="btn btn-block btn-primary">Upload Image</button>
+                </form>
             </div>
 
             <div class="col-sm-6 col-lg-6" data-effect="slide-right">
