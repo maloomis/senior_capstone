@@ -26,7 +26,6 @@ module.exports = function(app, model) {
 
     function sendMessage(req, res) {
         var message = req.body;
-        console.log(message)
         var to = req.params.tid;
         var from = req.params.fid;
 

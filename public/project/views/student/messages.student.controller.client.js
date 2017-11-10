@@ -16,14 +16,34 @@
                 MessageService.findMessageById(vm.studentId)
                 .success(function(messages) {
                     if (messages != '0') {
+                        console.log(messages)
                         vm.messages = messages;
                         vm.chatStudentName = messages[0].from.name;
 
                         for (var i = 0; i < messages.length; i++) {
-                            //my sent messages
+                            //check if group message
+                            if (messages[i].groupMessage === "true") {
+                                var groupNames = [];
+                                var groupIds = [];
+
+                                //store the to names
+                                for (var j = 0; j < messages[i].to.length; j++) {
+                                    var newName = {name: messages[i].to[j].name};
+                                    var newId = {_id: messages[i].to[j]._id};
+                                    groupNames.push(newName);
+                                    groupIds.push(newId);
+                                }
+
+                                //push group names to message list
+                                var newList = {name: groupNames, _id: groupIds, groupMessage: true};
+                                vm.messageSorted.push(newList);
+                                continue;
+                            }
+
+                            //filter message I sent
                             if(messages[i].from._id == vm.studentId) {
-                                if((vm.messageSorted.filter(message => message.name === messages[i].to.name)) == 0) {
-                                    var newName = {name: messages[i].to.name, _id: messages[i].to._id};
+                                if((vm.messageSorted.filter(message => message.name === messages[i].to[0].name)) == 0) {
+                                    var newName = {name: messages[i].to[0].name, _id: messages[i].to[0]._id};
                                     vm.messageSorted.push(newName);
                                 } 
                                 continue;
@@ -37,22 +57,29 @@
                                 duplicate[0].count++;
                             } 
                         }
-
-                        chatStudent(messages[0].from);
+                        
+                       // chatStudent(messages[0].from);
                     }
                 })
                 .error (function() {
                     vm.error = "Could not retrieve messages";
                 });
+
             }
             
            init();
 
            function chatStudent(student) {
-               vm.chatStudentName = student.name;
-               vm.chatStudentId = student.id;
+               console.log(student)
+               vm.chatStudentName = "";
+               vm.chatStudentId = [];
 
-                MessageService.findMessageById(student._id)
+               for (var i = 0; i < student.name.length; i++) {
+                vm.chatStudentName = vm.chatStudentName + " " + student.name[i].name;
+                vm.chatStudentId.push(student._id[i]._id);
+               }
+
+                MessageService.findMessageById(vm.chatStudentId)
                 .success(function(messages){
                     if (messages != '0') {
                         vm.chatMessages = messages;

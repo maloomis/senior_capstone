@@ -58,7 +58,9 @@ module.exports = function() {
                 _id: studentId
             }, 
             {
-                hobbies: student.hobbies
+                hobbies: student.hobbies,
+                instagram: student.instagram,
+                snapchat: student.snapchat
             }
         );
     }

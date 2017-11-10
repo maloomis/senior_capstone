@@ -39,13 +39,15 @@
                         <div class="panel-heading">Information</div>
                         
                         <div class="panel-body">
-                            <p>Name: {{model.student.name}}</p>
-                            <p>Major: {{model.student.major}}</p>
-                            <p>Hometown: {{model.student.hometown}}</p>                        
-                            <p>Graduation Year: {{model.student.graduationYear}}</p>
-                            <p>Dorm: {{model.student.dorm}}</p>
-                            <p>Room Number: {{model.student.room}}</p>
-                            <p>Hobbies: {{model.student.hobbies}}</p>
+                            <p ng-hide="myvar == null">Name: {{model.student.name}}</p>
+                            <p ng-hide="myvar == null">Major: {{model.student.major}}</p>
+                            <p ng-hide="myvar == null">Hometown: {{model.student.hometown}}</p>                        
+                            <p ng-hide="myvar == null">Graduation Year: {{model.student.graduationYear}}</p>
+                            <p ng-hide="myvar == null">Dorm: {{model.student.dorm}}</p>
+                            <p ng-hide="myvar == null">Room Number: {{model.student.room}}</p>
+                            <p ng-hide="myvar == null">Hobbies: {{model.student.hobbies}}</p>
+                            <p ng-hide="myvar == null">Snapchat: {{model.student.snapchat}}</p>
+                            <p ng-hide="myvar == null">Instagram: {{model.student.instagram}}</p>
                         </div>
                       
                         <div class="panel-footer">                    

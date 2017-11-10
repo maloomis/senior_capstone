@@ -13,6 +13,7 @@
 
         function findMessageById(studentId) {
             var url = '/api/message/' + studentId;
+            console.log(url)
             return $http.get(url);
         };
 

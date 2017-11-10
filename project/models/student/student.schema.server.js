@@ -13,6 +13,8 @@ module.exports = function() {
         hometown: String, 
         hobbies: String,
         img: String,
+        instagram: String,
+        snapchat: String,
         roommate: [{
             student: {
                 type: mongoose.Schema.Types.ObjectId,

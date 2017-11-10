@@ -34,7 +34,10 @@
         </div>
         <div class="list-group">
           <a class="list-group-item active">Messages</a>
-          <a ng-repeat="message in model.messageSorted" ng-click="model.chatStudent(message)" class="list-group-item"><span class="badge">{{message.count}}</span>{{message.name}}</a>
+          <a ng-repeat="message in model.messageSorted" ng-click="model.chatStudent(message)" class="list-group-item">
+            <span class="badge">{{message.count}}</span>
+            {{message.name}}
+          </a>
         </div>
       </div>
 

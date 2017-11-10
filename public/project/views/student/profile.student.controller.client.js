@@ -24,6 +24,7 @@
             init();
         
             function saveInformation(student){
+                console.log(student)
                 var promise = StudentService.updateStudent(student._id, student);
                 promise.success(function(status) {
                         if (status === '0') {

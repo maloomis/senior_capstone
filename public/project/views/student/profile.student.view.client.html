@@ -73,6 +73,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                            <label for="inputPassword" class="col-lg-2 control-label">Instagram</label>
+                            <div class="col-lg-10">
+                                <input ng-model="model.student.instagram" type="text" class="form-control" placeholder="{{model.student.instagram}}">
+                            </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="inputPassword" class="col-lg-2 control-label">Snapchat</label>
+                            <div class="col-lg-10">
+                                <input ng-model="model.student.snapchat" type="text" class="form-control" placeholder="{{model.student.snapchat}}">
+                            </div>
+                    </div>
+                    <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
                         <button ng-confirm-click="Your profile was updated." ng-click="model.saveInformation(model.student)" type="submit" class="btn btn-default">Update</button>
                     </div>
