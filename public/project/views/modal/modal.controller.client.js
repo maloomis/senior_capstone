@@ -84,8 +84,8 @@
                         });
                     }
                 })
-               // $uibModalInstance.close();
-               // window.location.reload();
+                $uibModalInstance.close();
+                window.location.reload();
             }
 
             function newMessage() {
