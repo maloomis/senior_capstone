@@ -10,9 +10,11 @@
             vm.logout = logout;
 
             function init() {
+                console.log(vm.studentId)
                 StudentService.findStudentById(vm.studentId)
                 .success(function(student) {
                     if (student != '0') {
+                        console.log(student)
                         vm.student = student;
                     }
                 })

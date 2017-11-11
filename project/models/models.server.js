@@ -6,10 +6,12 @@ module.exports = function() {
 
     var studentModel = require("./student/student.model.server")();
     var messageModel = require("./message/message.model.server")();
+    var conversationModel = require("./conversation/conversation.model.server")();
 
     var model = {
         studentModel: studentModel,
-        messageModel : messageModel
+        messageModel : messageModel,
+        conversationModel : conversationModel
     }
     return model;
 };

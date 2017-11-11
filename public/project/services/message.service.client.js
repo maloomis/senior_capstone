@@ -5,21 +5,21 @@
     
     function MessageService($http) {        
         var api = {
-            "findMessageById" : findMessageById,
+            "findMessages" : findMessages,
             "sendMessage" : sendMessage
         };
 
         return api;
 
-        function findMessageById(studentId) {
-            var url = '/api/message/' + studentId;
-            console.log(url)
+        function findMessages(conversationId) {
+            var url = '/api/message/' + conversationId;
             return $http.get(url);
         };
 
-        function sendMessage(message, to, from) {
-            var message = {m: message};
-            var url = '/api/to/' + to + '/from/' + from;
+        function sendMessage(message, sender, conversation) {
+            var message = {m: message, sender: sender, conversation: conversation};
+            console.log(message)
+            var url = '/api/sendMessage/';
             return $http.post(url, message);
         }
     }

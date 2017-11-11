@@ -5,21 +5,21 @@ module.exports = function() {
     var MessageModel = mongoose.model('MessageModel', MessageSchema, 'MessageModel');
 
     var api = {
-        findMessageById : findMessageById,
+        findMessages : findMessages,
         sendMessage : sendMessage
     };
     return api;
 
-    function findMessageById(studentId) {
-        return MessageModel.find({$or: [{to: studentId}, {from: studentId}]}).populate('from').populate('to');
+    function findMessages(conversationId) {
+        return MessageModel.find({conversation: conversationId}).populate('sender');
     }
 
-    function sendMessage(message, to, from) {
+    function sendMessage(message) {
         return MessageModel.create(
             {
-                message: message.m,
-                to: to,
-                from: from
+                content: message.m,
+                sender: message.sender,
+                conversation: message.conversation
             }
         );
     }

@@ -34,28 +34,30 @@
         </div>
         <div class="list-group">
           <a class="list-group-item active">Messages</a>
-          <a ng-repeat="message in model.messageSorted" ng-click="model.chatStudent(message)" class="list-group-item">
-            <span class="badge">{{message.count}}</span>
-            {{message.name}}
+          <a ng-repeat="(key, value) in model.conversations" class="list-group-item">
+            <div ng-repeat="p in value.participants" ng-click="model.chatStudent(value)">
+              <span class="badge">{{p.count}}</span>
+              {{p.name}}
+            </div>
           </a>
         </div>
       </div>
 
       <div class="col-sm-6 col-lg-6">
         <div class="panel panel-primary">
-          <div class="panel-heading">{{model.chatStudentName}}</div>
+          <div class="panel-heading">Chat</div>
             <div class="panel-body">
               <div class="container">
-                  <div ng-repeat="message in model.chatMessages" class="row message-bubble">
-                  <p class="text-muted">{{message.from.name}}</p>
-                      <span>{{message.message}}</span>
+                  <div ng-repeat="message in model.messages" class="row message-bubble">
+                  <p class="text-muted">{{message.sender.name}}</p>
+                      <span>{{message.content}}</span>
                   </div>
               </div>
               <div class="panel-footer">
                     <div class="input-group">
-                    <input ng-model="model.messageToSend" type="text" class="form-control">
+                    <input ng-model="model.content" type="text" class="form-control">
                     <span class="input-group-btn">
-                      <button class="btn btn-default" ng-click="model.sendMessage(model.messageToSend)" type="button">Send</button>
+                      <button class="btn btn-default" ng-click="model.sendMessage(model.content)" type="button">Send</button>
                     </span>
                   </div>
               </div>
@@ -70,19 +72,13 @@
             <h3 class="modal-title" id="modal-title">New Message</h3>
         </div>
         <div class="modal-body" id="modal-body">
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To: {{model.toName}}
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                  <li ng-click="model.setToId(student._id, student.name)" ng-repeat="student in model.building" role="presentation"><a role="menuitem" tabindex="-1">{{student.name}}</a></li>
-                </ul>
-              </div>
+            <div ng-dropdown-multiselect="" extra-settings="model.settings" options="model.building" selected-model="model.sendNames"></div>
             <div class="form-group">
                 <textarea ng-model="model.message" class="form-control" rows="5" id="message"></textarea>
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-default" type="button" ng-click="model.newMessage(model.toId)">Send</button>
+            <button class="btn btn-default" type="button" ng-click="model.newMessage()">Send</button>
             <button class="btn btn-default" type="button" ng-click="model.cancel()">Cancel</button>
         </div>
     </script>

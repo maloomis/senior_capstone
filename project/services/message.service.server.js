@@ -4,14 +4,14 @@ module.exports = function(app, model) {
 
     app.use(cookieParser());
    
-    app.get('/api/message/:sid', findMessageById);
-    app.post('/api/to/:tid/from/:fid', sendMessage);
+    app.get('/api/message/:sid', findMessages);
+    app.post('/api/sendMessage', sendMessage);
 
-    function findMessageById(req, res) {
-        var studentId = req.params.sid;
+    function findMessages(req, res) {
+        var conversationId = req.params.sid;
         model
             .messageModel
-            .findMessageById(studentId)
+            .findMessages(conversationId)
             .then(
                 function(messages) {
                     if (messages) {
@@ -26,12 +26,11 @@ module.exports = function(app, model) {
 
     function sendMessage(req, res) {
         var message = req.body;
-        var to = req.params.tid;
-        var from = req.params.fid;
+        console.log(message)
 
         model
             .messageModel
-            .sendMessage(message, to, from)
+            .sendMessage(message)
             .then(function (status) {
                     res.sendStatus(200);
                 },
