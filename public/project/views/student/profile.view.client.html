@@ -27,12 +27,13 @@
         </nav>
     
         <div class="row">
-                <div class="col-sm-6 col-lg-6">
-                    <uib-carousel >
-                        <uib-slide ng-repeat="image in model.student.img" index="$index">
-                            <img ng-src="project/{{image}}" style="max-height:300px; margin:0 auto;"/>
-                        </uib-slide>
-                    </uib-carousel>
+            <div class="col-sm-6 col-lg-6">
+                <uib-carousel >
+                    <uib-slide ng-repeat="image in model.student.img" index="$index">
+                        <img ng-src="project/{{image}}" style="max-height:300px; margin:0 auto;"/>
+                    </uib-slide>
+                </uib-carousel>
+            </div>
 
             <div class="col-sm-6 col-lg-6">
                     <div class="panel panel-primary" id="panels" data-effect="helix">
