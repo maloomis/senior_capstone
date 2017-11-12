@@ -53,6 +53,7 @@ template {
 }
 a {
   background: transparent;
+  font-weight: bold;
 }
 a:active,
 a:hover {
@@ -282,6 +283,7 @@ html {
 body {
   font-family: 'Lane', sans-serif;
   font-size: 16px;
+  font-weight: bold;
   line-height: 1.6em;
   color: #818181;
   background-color: #ffffff;
@@ -299,6 +301,7 @@ textarea {
 a {
   color: #C10101;
   text-decoration: none;
+  font-weight: bold;
 }
 a:hover,
 a:focus {
@@ -543,6 +546,7 @@ mark,
 }
 .text-muted {
   color: #777777;
+  font-weight: bold;
 }
 .text-primary {
   color: #009688;
@@ -1480,6 +1484,7 @@ th {
 .table > tfoot > tr > td {
   padding: 8px;
   line-height: 1.666;
+  font-weight: bold;
   vertical-align: top;
   border-top: 1px solid #dddddd;
 }
@@ -4145,6 +4150,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .breadcrumb-light > .active {
   color:  #818181;
+  font-weight: bold;
 }
 .pagination {
   display: inline-block;
