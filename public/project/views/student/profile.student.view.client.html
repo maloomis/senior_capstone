@@ -36,6 +36,12 @@
                     </uib-slide>
                 </uib-carousel>
 
+                <div uib-carousel interval="5000"  active="$index">
+                        <div uib-slide index="$index" ng-repeat="image in model.student.img" >
+                            <img ng-src="project/{{image}}">
+                        </div>
+                <div>
+
                 </br></br>
                 <form action="/api/uploadImage" method="post" enctype="multipart/form-data">
                     <input name="photos" type="file" class="form-control" multiple/>
