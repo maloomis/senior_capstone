@@ -12,7 +12,9 @@ module.exports = function() {
         room: String,
         hometown: String, 
         hobbies: String,
-        img: String,
+        img: [
+            String
+        ],
         instagram: String,
         snapchat: String,
         roommate: [{

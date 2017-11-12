@@ -50,14 +50,15 @@ module.exports = function() {
         )
     }
 
-    function uploadImage(studentId, fileName) {
-        console.log(fileName)
+    function uploadImage(studentId, fileNames) {
+        console.log(fileNames)
+
         return StudentModel.update (
             {
                 _id: studentId
             }, 
             {
-                img: "upload/" + fileName
+                img: fileNames
             }
         );
     }

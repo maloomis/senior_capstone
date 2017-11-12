@@ -102,17 +102,26 @@ module.exports = function(app, model) {
         var myFiles        = req.files;
 
         console.log(myFiles)
+        var fileNames = [];
 
-        var originalname  = myFile.originalname; // file name on user's computer
-        var filename      = myFile.filename;
-        var path          = myFile.path;         // full path of uploaded file
-        var destination   = myFile.destination;  // folder where file is saved to
-        var size          = myFile.size;
-        var mimetype      = myFile.mimetype;
+        for (var i = 0; i < myFiles.length; i++) {
+            var originalname  = myFiles[i].originalname; // file name on user's computer
+            var filename      = myFiles[i].filename;
+            var path          = myFiles[i].path;         // full path of uploaded file
+            var destination   = myFiles[i].destination;  // folder where file is saved to
+            var size          = myFiles[i].size;
+            var mimetype      = myFile[i].mimetype;
+
+            var string = "upload/" + filename;
+
+            fileNames.push(string)
+        }
+
+        console.log(fileNames)
 
         model
             .studentModel
-            .uploadImage(studentId, filename)
+            .uploadImage(studentId, fileNames)
             .then(
                 function(status) {
                     res.redirect('../index.html#/studentProfile/'+ studentId);
