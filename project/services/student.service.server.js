@@ -9,7 +9,9 @@ module.exports = function(app, model) {
     var multer = require('multer'); // npm install multer --save
     var storage = multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, './apps/senior_capstone/public/project/upload');
+            console.log(file)
+            console.log(cb)
+            cb(null, __dirname + '../../../public/project/upload');
         },
         filename: function (req, file, cb) {
             cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
