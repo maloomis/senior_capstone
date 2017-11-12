@@ -110,7 +110,7 @@ module.exports = function(app, model) {
             var path          = myFiles[i].path;         // full path of uploaded file
             var destination   = myFiles[i].destination;  // folder where file is saved to
             var size          = myFiles[i].size;
-            var mimetype      = myFile[i].mimetype;
+            var mimetype      = myFiles[i].mimetype;
 
             var string = "upload/" + filename;
 
