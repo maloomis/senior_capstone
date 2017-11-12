@@ -29,12 +29,22 @@
         <div class="row">
             
             <div class="col-lg-6 col-sm-6 ">
-                    <ui-carousel slides="ctrl.fade.slides" slides-to-show="3" slides-to-scroll="1">
-                            <carousel-item ng-repeat="img in student.img">
-                                {{img}}
-                              <div class="image"><img src="public/{{img}}"></div>
-                            </carousel-item>
+                    <ui-carousel   slides="ctrl.slides"
+                    slides-to-show="3"
+                    slides-to-scroll="1"
+                    initial-slide="1"
+                    autoplay="true"
+                    autoplay-speed="2000"
+                    dots="true">
+                        <div ng-repeat="image in model.student.img">
+                                <carousel-item>
+                                      <div class="image"><img src="public/{{image}}"></div>
+                                    </carousel-item>
+
+                        </div>
+  
                           </ui-carousel>
+
 
             </br></br>
                 <form action="/api/uploadImage" method="post" enctype="multipart/form-data">
