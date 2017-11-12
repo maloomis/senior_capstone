@@ -113,7 +113,7 @@
                     }
                 })
                 $uibModalInstance.close();
-                setTimeout(location.reload.bind(location), 30000);
+                setTimeout(location.reload.bind(location), 5000);
             };
 
             function setToId(id, name) {
