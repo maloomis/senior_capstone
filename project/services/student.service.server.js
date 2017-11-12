@@ -101,6 +101,8 @@ module.exports = function(app, model) {
         var studentId        = req.body.studentId;
         var myFile        = req.file;
 
+        console.log(myFile.path)
+
         var originalname  = myFile.originalname; // file name on user's computer
         var filename      = myFile.filename;
         var path          = myFile.path;         // full path of uploaded file
