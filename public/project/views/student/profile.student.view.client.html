@@ -30,15 +30,13 @@
             
             <div class="col-lg-6 col-sm-6 ">
                      <div style="height: 305px">
-                            <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-                              <div uib-slide ng-repeat="image in model.student.img"  index="slide.id">
-                                <img ng-src="project/{{image}}" style="margin:auto;">
-                                <div class="carousel-caption">
-                                  <h4>Slide {{slide.id}}</h4>
-                                  <p>{{slide.text}}</p>
-                                </div>
-                              </div>
+                        <div uib-carousel active="active" no-wrap="noWrapSlides">
+                            <div uib-slide ng-repeat="image in model.student.img" >
+                            <img ng-src="project/{{image}}" style="margin:auto;">
+                            <div class="carousel-caption">
                             </div>
+                            </div>
+                        </div>
                     </div>
 
 

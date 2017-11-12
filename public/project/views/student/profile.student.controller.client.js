@@ -8,6 +8,8 @@
             vm.studentId = $routeParams["sid"];
             vm.saveInformation = saveInformation;
             vm.logout = logout;
+            vm.noWrapSlides = false;
+            vm.active = 0;
 
             function init() {
                 console.log(vm.studentId)
