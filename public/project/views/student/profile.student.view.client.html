@@ -34,10 +34,10 @@
                 </a>
 
                 <form action="/api/uploadImage" method="post" enctype="multipart/form-data">
-                    <input name="myFile" type="file" class="form-control"/>
+                    <input name="myFile" type="file" class="form-control" multiple/>
                     <input name="studentId" value="{{model.student._id}}" style="display: none"/>
                     </br>
-                    <button name="submit" class="btn btn-block btn-primary">Upload Image</button>
+                    <button name="submit" class="btn btn-block btn-primary">Upload Images</button>
                 </form>
             </div>
 

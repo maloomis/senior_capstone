@@ -23,7 +23,7 @@ module.exports = function(app, model) {
     app.get('/api/student/:sid', findStudentById);
     app.put('/api/student/:sid', updateStudent);
     app.put('/api/student/:sid/studentSend/:sid/message', messageStudent);
-    app.post ("/api/uploadImage", upload.single('myFile'), uploadImage);
+    app.post ("/api/uploadImage", upload.array('myFile', 10), uploadImage);
 
     function studentLogout(req, res) {
         req.logout();
