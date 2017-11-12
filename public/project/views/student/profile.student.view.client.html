@@ -29,11 +29,12 @@
         <div class="row">
             
             <div class="col-lg-6 col-sm-6 ">
-                <carousel>
-                    <slide ng-repeat="image in student.img" active="slide.active">
-                        <img ng-src="public/{{image}}">
-                    </slide>
-                </carousel>
+                    <ui-carousel slides="ctrl.fade.slides" slides-to-show="3" slides-to-scroll="1">
+                            <carousel-item ng-repeat="img in student.img">
+                                {{img}}
+                              <div class="image"><img src="public/{{img}}"></div>
+                            </carousel-item>
+                          </ui-carousel>
 
             </br></br>
                 <form action="/api/uploadImage" method="post" enctype="multipart/form-data">
