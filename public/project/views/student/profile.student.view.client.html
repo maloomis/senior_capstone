@@ -31,16 +31,10 @@
             <div class="col-lg-6 col-sm-6 ">
 
                 <uib-carousel >
-                    <uib-slide ng-repeat="image in model.student.img" active="model.active" index="$index">
+                    <uib-slide ng-repeat="image in model.student.img" active="$index" index="$index">
                         <img ng-src="project/{{image}}" style="margin:auto;" />
                     </uib-slide>
                 </uib-carousel>
-
-                <div uib-carousel interval="5000"  active="$index">
-                        <div uib-slide index="$index" ng-repeat="image in model.student.img" >
-                            <img ng-src="project/{{image}}">
-                        </div>
-                <div>
 
                 </br></br>
                 <form action="/api/uploadImage" method="post" enctype="multipart/form-data">
