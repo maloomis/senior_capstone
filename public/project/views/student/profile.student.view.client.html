@@ -30,19 +30,13 @@
             
             <div class="col-lg-6 col-sm-6 ">
 
-                    <div>
-                            <uib-carousel >
-                              <uib-slide ng-repeat="image in model.student.img" active="active" index="$index">
-                                <img ng-src="project/{{image}}" style="margin:auto;" />
-                                <div class="carousel-caption">
-                                  <h4>Slide {{$index+1}}</h4>
-                                </div>
-                              </uib-slide>
-                            </uib-carousel>
-                    </div>
+                <uib-carousel >
+                    <uib-slide ng-repeat="image in model.student.img" active="model.active" index="$index">
+                        <img ng-src="project/{{image}}" style="margin:auto;" />
+                    </uib-slide>
+                </uib-carousel>
 
-
-            </br></br>
+                </br></br>
                 <form action="/api/uploadImage" method="post" enctype="multipart/form-data">
                     <input name="photos" type="file" class="form-control" multiple/>
                     <input name="studentId" value="{{model.student._id}}" style="display: none"/>
