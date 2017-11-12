@@ -51,8 +51,6 @@ module.exports = function() {
     }
 
     function uploadImage(studentId, fileNames) {
-        console.log(fileNames)
-
         return StudentModel.update (
             {
                 _id: studentId
