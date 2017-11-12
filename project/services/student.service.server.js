@@ -9,7 +9,6 @@ module.exports = function(app, model) {
     var multer = require('multer'); // npm install multer --save
     var storage = multer.diskStorage({
         destination: function (req, file, cb) {
-            console.log(file)
             cb(null, '/opt/bitnami/apps/senior_capstone/public/project/upload');
         },
         filename: function (req, file, cb) {
@@ -100,12 +99,9 @@ module.exports = function(app, model) {
 
     function uploadImage(req, res) {
         var studentId        = req.body.studentId;
-        var myFile        = req.file;
+        var myFiles        = req.files;
 
-        console.log(myFile)
-        console.log(studentId)
-
-        console.log(myFile.path)
+        console.log(myFiles)
 
         var originalname  = myFile.originalname; // file name on user's computer
         var filename      = myFile.filename;
