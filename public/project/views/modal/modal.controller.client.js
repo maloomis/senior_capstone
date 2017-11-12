@@ -91,6 +91,7 @@
             function newMessage() {
                 particpants = vm.sendNames;
                 particpants.push(vm.studentId);
+                console.log(particpants)
                 
                 ConversationService.startConversation(particpants)
                 .success(function(conversation) {
@@ -112,7 +113,7 @@
                     }
                 })
                 $uibModalInstance.close();
-                window.location.reload();
+               // window.location.reload();
             };
 
             function setToId(id, name) {
