@@ -29,21 +29,17 @@
         <div class="row">
             
             <div class="col-lg-6 col-sm-6 ">
-                    <ui-carousel   slides="ctrl.slides"
-                    slides-to-show="3"
-                    slides-to-scroll="1"
-                    initial-slide="1"
-                    autoplay="true"
-                    autoplay-speed="2000"
-                    dots="true">
-                        <div ng-repeat="image in model.student.img">
-                                <carousel-item>
-                                      <div class="image"><img src="project/{{image}}"></div>
-                                    </carousel-item>
-
-                        </div>
-  
-                          </ui-carousel>
+                     <div style="height: 305px">
+                            <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                              <div uib-slide ng-repeat="image in model.student.img"  index="slide.id">
+                                <img ng-src="project/{{image}}" style="margin:auto;">
+                                <div class="carousel-caption">
+                                  <h4>Slide {{slide.id}}</h4>
+                                  <p>{{slide.text}}</p>
+                                </div>
+                              </div>
+                            </div>
+                    </div>
 
 
             </br></br>
